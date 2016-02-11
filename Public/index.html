@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact List App</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container" ng-controller="AppController">
+      <h1> <small>Contact List app</small></h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th> Name </th>
+            <th> Email </th>
+            <th> Number </th>
+            <th> Action </th>
+            <th> &nbsp; </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input class="form-control" ng-model="contact.name"></td>
+            <td><input class="form-control" ng-model="contact.email"></td>
+            <td><input class="form-control" ng-model="contact.number"></td>
+            <td><button class="btn btn-primary" ng-click="addContact()">Add Contact</button></td>
+            <td><button class="btn btn-info" ng-click="update()">Update</button>&nbsp;&nbsp;<button class="btn btn-info" ng-click="deselect()">Clear</button></td>
+
+          </tr>
+
+          <tr ng-repeat="contact in contactList">
+            <td>{{contact.name}}</td>
+            <td>{{contact.email}}</td>
+            <td>{{contact.number}}</td>
+            <td><button class="btn btn-danger" ng-click="remove(contact._id)">Remove</button></td>
+            <td><button class="btn btn-warning" ng-click="edit(contact._id)">Edit</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- Angularjs CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <<!-- Angularjs controller link -->
+    <script src="Controllers/controller.js"></script>
+  </body>
+</html>
